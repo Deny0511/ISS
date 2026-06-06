@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="14" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="org.example.ui.SearchController"
+      style="-fx-background-color: #0f172a;
+             -fx-padding: 24;">
+
+    <Label text="✈  Zboruri disponibile"
+           style="-fx-text-fill: #60a5fa;
+                  -fx-font-size: 20px;
+                  -fx-font-weight: bold;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="departureField"
+                   promptText="De la..."
+                   style="-fx-background-color: #1e293b;
+                          -fx-text-fill: white;
+                          -fx-prompt-text-fill: #475569;
+                          -fx-background-radius: 8;
+                          -fx-border-color: #334155;
+                          -fx-border-radius: 8;
+                          -fx-border-width: 1.5;
+                          -fx-padding: 9 12;
+                          -fx-font-size: 13px;
+                          -fx-pref-width: 180;"/>
+
+        <TextField fx:id="destinationField"
+                   promptText="Spre..."
+                   style="-fx-background-color: #1e293b;
+                          -fx-text-fill: white;
+                          -fx-prompt-text-fill: #475569;
+                          -fx-background-radius: 8;
+                          -fx-border-color: #334155;
+                          -fx-border-radius: 8;
+                          -fx-border-width: 1.5;
+                          -fx-padding: 9 12;
+                          -fx-font-size: 13px;
+                          -fx-pref-width: 180;"/>
+
+        <Button text="🔍  Caută"
+                onAction="#handleSearch"
+                style="-fx-background-color: #2563eb;
+                       -fx-text-fill: white;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 8;
+                       -fx-padding: 9 18;
+                       -fx-font-size: 13px;
+                       -fx-cursor: hand;"/>
+
+        <Button text="Reset"
+                onAction="#handleReset"
+                style="-fx-background-color: #1e293b;
+                       -fx-text-fill: #94a3b8;
+                       -fx-background-radius: 8;
+                       -fx-border-color: #334155;
+                       -fx-border-radius: 8;
+                       -fx-border-width: 1.5;
+                       -fx-padding: 9 14;
+                       -fx-font-size: 13px;
+                       -fx-cursor: hand;"/>
+    </HBox>
+
+    <TableView fx:id="table" VBox.vgrow="ALWAYS"
+               style="-fx-background-color: #1e293b;
+                      -fx-background-radius: 10;
+                      -fx-border-color: #334155;
+                      -fx-border-radius: 10;
+                      -fx-border-width: 1.5;">
+        <columns>
+            <TableColumn fx:id="colFrom"  text="De la"    prefWidth="150"/>
+            <TableColumn fx:id="colTo"    text="Spre"     prefWidth="150"/>
+            <TableColumn fx:id="colTime"  text="Plecare"  prefWidth="200"/>
+            <TableColumn fx:id="colSeats" text="Locuri"   prefWidth="80"/>
+            <TableColumn fx:id="colPrice" text="Preț"     prefWidth="100"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+
+    <Label fx:id="detailsLabel"
+           style="-fx-text-fill: #60a5fa;
+                  -fx-font-size: 12px;
+                  -fx-font-style: italic;"/>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="seatsField"
+                   promptText="Nr. locuri"
+                   style="-fx-background-color: #1e293b;
+                          -fx-text-fill: white;
+                          -fx-prompt-text-fill: #475569;
+                          -fx-background-radius: 8;
+                          -fx-border-color: #334155;
+                          -fx-border-radius: 8;
+                          -fx-border-width: 1.5;
+                          -fx-padding: 9 12;
+                          -fx-font-size: 13px;
+                          -fx-pref-width: 100;"/>
+
+        <TextArea fx:id="touristsArea"
+                  promptText="Numele turiștilor (unul pe linie)"
+                  prefHeight="70" minHeight="70" maxHeight="70"
+                  prefWidth="260"
+                  style="-fx-background-color: #1e293b;
+                         -fx-text-fill: white;
+                         -fx-prompt-text-fill: #475569;
+                         -fx-control-inner-background: #1e293b;
+                         -fx-background-radius: 8;
+                         -fx-border-color: #334155;
+                         -fx-border-radius: 8;
+                         -fx-border-width: 1.5;
+                         -fx-font-size: 13px;"/>
+
+        <Button text="✔  Rezervă zborul"
+                onAction="#handleBook"
+                style="-fx-background-color: #16a34a;
+                       -fx-text-fill: white;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 8;
+                       -fx-padding: 9 18;
+                       -fx-font-size: 13px;
+                       -fx-cursor: hand;"/>
+    </HBox>
+
+    <Button text="📋  Rezervările mele"
+            onAction="#handleMyBookings"
+            style="-fx-background-color: #1e293b;
+                   -fx-text-fill: #60a5fa;
+                   -fx-font-size: 13px;
+                   -fx-background-radius: 8;
+                   -fx-border-color: #2563eb;
+                   -fx-border-radius: 8;
+                   -fx-border-width: 1.5;
+                   -fx-padding: 9 18;
+                   -fx-cursor: hand;"/>
+
+</VBox>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="org.example.ui.LoginController"
+           style="-fx-background-color: #0f172a;">
+
+    <VBox alignment="CENTER" spacing="20"
+          maxWidth="320"
+          style="-fx-background-color: #1e293b;
+                 -fx-background-radius: 12;
+                 -fx-padding: 30;">
+
+        <Label text="✈ SKYBOOK"
+               style="-fx-text-fill: #60a5fa;
+                      -fx-font-size: 20px;
+                      -fx-font-weight: bold;"/>
+
+        <Label text="Login"
+               style="-fx-text-fill: #94a3b8;
+                      -fx-font-size: 12px;"/>
+
+        <TextField fx:id="usernameField"
+                   promptText="Username"
+                   style="-fx-background-color: #334155;
+                          -fx-text-fill: white;
+                          -fx-prompt-text-fill: #94a3b8;
+                          -fx-background-radius: 8;
+                          -fx-padding: 10;"/>
+
+        <PasswordField fx:id="passwordField"
+                       promptText="Password"
+                       style="-fx-background-color: #334155;
+                              -fx-text-fill: white;
+                              -fx-prompt-text-fill: #94a3b8;
+                              -fx-background-radius: 8;
+                              -fx-padding: 10;"/>
+
+        <Button text="Login"
+                onAction="#handleLogin"
+                style="-fx-background-color: #2563eb;
+                       -fx-text-fill: white;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 8;
+                       -fx-padding: 10;
+                       -fx-pref-width: 200;"/>
+
+        <Label fx:id="messageLabel"
+               style="-fx-text-fill: #f87171;
+                      -fx-font-size: 11px;"/>
+
+    </VBox>
+</StackPane>

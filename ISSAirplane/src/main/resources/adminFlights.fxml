@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.ui.AdminFlightController"
+            style="-fx-background-color: #0f172a;">
+
+    <center>
+        <VBox spacing="14"
+              prefWidth="900" prefHeight="700"
+              style="-fx-padding: 24;
+                     -fx-background-color: #0f172a;">
+
+            <Label text="✈  Gestionare zboruri"
+                   style="-fx-text-fill: #60a5fa;
+                          -fx-font-size: 20px;
+                          -fx-font-weight: bold;"/>
+
+            <TableView fx:id="table" prefHeight="320"
+                       style="-fx-background-color: #1e293b;
+                              -fx-background-radius: 10;
+                              -fx-border-color: #334155;
+                              -fx-border-radius: 10;
+                              -fx-border-width: 1.5;">
+                <columns>
+                    <TableColumn fx:id="colFrom"  text="De la"   prefWidth="150"/>
+                    <TableColumn fx:id="colTo"    text="Spre"    prefWidth="150"/>
+                    <TableColumn fx:id="colDate"  text="Plecare" prefWidth="220"/>
+                    <TableColumn fx:id="colSeats" text="Locuri"  prefWidth="100"/>
+                    <TableColumn fx:id="colPrice" text="Preț"    prefWidth="100"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+
+            <GridPane hgap="12" vgap="10">
+
+                <Label text="De la"
+                       style="-fx-text-fill: #94a3b8; -fx-font-size: 13px;"
+                       GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="departureField"
+                           style="-fx-background-color: #1e293b;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #475569;
+                                  -fx-background-radius: 8;
+                                  -fx-border-color: #334155;
+                                  -fx-border-radius: 8;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 9 12;
+                                  -fx-font-size: 13px;
+                                  -fx-pref-width: 280;"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Spre"
+                       style="-fx-text-fill: #94a3b8; -fx-font-size: 13px;"
+                       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="destinationField"
+                           style="-fx-background-color: #1e293b;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #475569;
+                                  -fx-background-radius: 8;
+                                  -fx-border-color: #334155;
+                                  -fx-border-radius: 8;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 9 12;
+                                  -fx-font-size: 13px;
+                                  -fx-pref-width: 280;"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Data și ora"
+                       style="-fx-text-fill: #94a3b8; -fx-font-size: 13px;"
+                       GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="dateField"
+                           promptText="2026-08-10T12:30"
+                           style="-fx-background-color: #1e293b;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #475569;
+                                  -fx-background-radius: 8;
+                                  -fx-border-color: #334155;
+                                  -fx-border-radius: 8;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 9 12;
+                                  -fx-font-size: 13px;
+                                  -fx-pref-width: 280;"
+                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Locuri"
+                       style="-fx-text-fill: #94a3b8; -fx-font-size: 13px;"
+                       GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="seatsField"
+                           style="-fx-background-color: #1e293b;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #475569;
+                                  -fx-background-radius: 8;
+                                  -fx-border-color: #334155;
+                                  -fx-border-radius: 8;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 9 12;
+                                  -fx-font-size: 13px;
+                                  -fx-pref-width: 280;"
+                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Preț"
+                       style="-fx-text-fill: #94a3b8; -fx-font-size: 13px;"
+                       GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="priceField"
+                           style="-fx-background-color: #1e293b;
+                                  -fx-text-fill: white;
+                                  -fx-prompt-text-fill: #475569;
+                                  -fx-background-radius: 8;
+                                  -fx-border-color: #334155;
+                                  -fx-border-radius: 8;
+                                  -fx-border-width: 1.5;
+                                  -fx-padding: 9 12;
+                                  -fx-font-size: 13px;
+                                  -fx-pref-width: 280;"
+                           GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+            </GridPane>
+
+            <HBox spacing="12">
+                <Button text="➕  Adaugă zbor"
+                        onAction="#handleAdd"
+                        style="-fx-background-color: #2563eb;
+                               -fx-text-fill: white;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 8;
+                               -fx-padding: 10 20;
+                               -fx-font-size: 13px;
+                               -fx-cursor: hand;"/>
+
+                <Button text="✏  Actualizează"
+                        onAction="#handleUpdate"
+                        style="-fx-background-color: #1e3a5f;
+                               -fx-text-fill: #93c5fd;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 8;
+                               -fx-border-color: #2563eb;
+                               -fx-border-radius: 8;
+                               -fx-border-width: 1.5;
+                               -fx-padding: 10 20;
+                               -fx-font-size: 13px;
+                               -fx-cursor: hand;"/>
+
+                <Button text="🗑  Șterge zborul"
+                        onAction="#handleDelete"
+                        style="-fx-background-color: #7f1d1d;
+                               -fx-text-fill: #fca5a5;
+                               -fx-font-weight: bold;
+                               -fx-background-radius: 8;
+                               -fx-padding: 10 20;
+                               -fx-font-size: 13px;
+                               -fx-cursor: hand;"/>
+
+                <Button text="🛫  Aeroporturi"
+                        onAction="#handleAirports"
+                        style="-fx-background-color: #1e293b;
+                               -fx-text-fill: #94a3b8;
+                               -fx-background-radius: 8;
+                               -fx-border-color: #334155;
+                               -fx-border-radius: 8;
+                               -fx-border-width: 1.5;
+                               -fx-padding: 10 20;
+                               -fx-font-size: 13px;
+                               -fx-cursor: hand;"/>
+            </HBox>
+
+            <Label fx:id="messageLabel"
+                   style="-fx-text-fill: #60a5fa;
+                          -fx-font-size: 12px;
+                          -fx-font-style: italic;"/>
+
+        </VBox>
+    </center>
+
+</BorderPane>
